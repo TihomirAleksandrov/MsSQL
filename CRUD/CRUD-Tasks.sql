@@ -39,3 +39,38 @@ WHERE e.Salary = 25000 OR e.Salary = 14000 OR e.Salary = 12500 OR e.Salary = 236
 SELECt e.FirstName, e.LastName
 FROM Employees AS e
 WHERE e.ManagerID IS NULL
+
+--Task12
+SELECt e.FirstName, e.LastName, e.Salary
+FROM Employees AS e
+WHERE e.Salary > 50000
+ORDER BY e.Salary DESC
+
+--Task13
+SELECT TOP(5) e.FirstName, e.LastName 
+FROM Employees AS e
+ORDER BY e.Salary DESC
+
+--Task14
+SELECt e.FirstName, e.LastName
+FROM Employees AS e
+WHERE NOT e.DepartmentID = 4
+
+--Task15
+SELECt *
+FROM Employees AS e
+ORDER BY e.Salary DESC, e.FirstName, e.LastName DESC, e.MiddleName
+
+--Task16
+CREATE VIEW V_EmployeesSalaries AS
+SELECT FirstName, LastName, Salary
+FROM Employees
+
+--Task17
+CREATE VIEW V_EmployeeNameJobTitle AS
+SELECT FirstName + ' ' + ISNULL(MiddleName, '') + ' ' + LastName AS 'Full Name', JobTitle
+FROM Employees
+
+--Task18
+SELECT DISTINCT e.JobTitle
+FROM Employees AS e
