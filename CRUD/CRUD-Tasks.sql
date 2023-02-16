@@ -74,3 +74,21 @@ FROM Employees
 --Task18
 SELECT DISTINCT e.JobTitle
 FROM Employees AS e
+
+--Task19
+SELECT TOP(10) *
+FROM Projects AS p
+ORDER BY p.StartDate, p.Name
+
+--Task 20
+SELECT TOP(7) e.FirstName, e.LastName, e.HireDate
+FROM Employees AS e
+ORDER BY e.HireDate DESC
+
+--Task21
+UPDATE Employees
+SET Salary += 0.12 * Salary
+WHERE DepartmentID IN(1, 2, 4, 11)
+
+SELECT Salary 
+FROM Employees
