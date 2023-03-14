@@ -16,5 +16,8 @@ CREATE TABLE[Passports]
 
 CREATE TABLE[Persons]
 (
-[]
+[PersonID] INT PRIMARY KEY IDENTITY,
+[FirstName] NVARCHAR(40),
+[Salary] DECIMAL(8, 2),
+[PassportID] INT FOREIGN KEY REFERENCES [Passports]([PassportID]) UNIQUE NOT NULL
 )
