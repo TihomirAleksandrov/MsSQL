@@ -1,0 +1,23 @@
+CREATE DATABASE [OnlineStoreDB]
+
+USE [OnlineStoreDB]
+
+CREATE TABLE [Cities]
+(
+[CityID] INT PRIMARY KEY IDENTITY,
+[Name] VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE [Customers]
+(
+[CustomerID] INT PRIMARY KEY IDENTITY,
+[Name] VARCHAR(50) NOT NULL,
+[Birthday] DATE,
+[CityID] INT FOREIGN KEY REFERENCES [Cities]([CityID])
+)
+
+CREATE TABLE [Orders]
+(
+[OrderID] INT PRIMARY KEY IDENTITY,
+[CustomerID] INT FOREIGN KEY REFERENCES [Customers]([CustomerID])
+)
