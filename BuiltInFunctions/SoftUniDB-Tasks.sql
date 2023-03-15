@@ -44,3 +44,15 @@ FROM Employees
 WHERE YEAR([HireDate]) > 2000
 
 SELECT * FROM [V_EmployeesHiredAfter2000]
+
+--Task9
+SELECT e.FirstName, e.LastName
+FROM Employees AS e
+WHERE LEN(e.LastName) IN (5)
+
+--Task10
+SELECT e.EmployeeID, e.FirstName, e.LastName, e.Salary,
+DENSE_RANK() OVER(PARTITION BY e.Salary ORDER BY e.EmployeeID) AS [Rank]
+FROM Employees AS e
+WHERE e.Salary BETWEEN 10000 AND 50000
+ORDER BY e.Salary DESC
