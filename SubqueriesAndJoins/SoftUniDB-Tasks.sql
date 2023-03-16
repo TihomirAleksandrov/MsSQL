@@ -90,3 +90,13 @@ ON e.ManagerID = m.EmployeeID
 JOIN Departments AS d
 ON e.DepartmentID = d.DepartmentID
 ORDER BY e.EmployeeID
+
+--Task11
+SELECT MIN(AvgSalary) AS 'MinAverageSalary'
+FROM 
+(
+SELECT AVG(Salary) AS 'AvgSalary'
+FROM Employees
+GROUP BY DepartmentID
+) 
+AS [AverageSalaries]
