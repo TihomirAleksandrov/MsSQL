@@ -74,3 +74,11 @@ FROM WizzardDeposits
 WHERE DepositGroup = 'Troll Chest'
 GROUP BY SUBSTRING(FirstName, 1, 1)
 ORDER BY FirstLetter
+
+--Task11
+SELECT DepositGroup, IsDepositExpired,
+AVG(DepositInterest) AS 'AverageInterest'
+FROM WizzardDeposits
+WHERE DepositStartDate > '01/01/1985'
+GROUP BY DepositGroup, IsDepositExpired
+ORDER BY DepositGroup DESC, IsDepositExpired
